@@ -1,0 +1,17 @@
+[
+  {
+    "_id" : "1",
+    "name" : "Curso 1",
+    "category" : "Categoria 1"
+  },
+  {
+    "_id" : "2",
+    "name" : "Curso 2",
+    "category" : "Categoria 2"
+  },
+  {
+    "_id" : "3",
+    "name" : "Curso 3",
+    "category" : "Categoria 3"
+  }
+]
