@@ -2,12 +2,12 @@
   {
     "_id" : "1",
     "name" : "Curso 1",
-    "category" : "Categoria 1"
+    "category" : "front-end"
   },
   {
     "_id" : "2",
     "name" : "Curso 2",
-    "category" : "Categoria 2"
+    "category" : "back-end"
   },
   {
     "_id" : "3",
