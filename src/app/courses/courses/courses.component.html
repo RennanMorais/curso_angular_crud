@@ -10,13 +10,13 @@
       <!-- Curso Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Curso</th>
-        <td mat-cell *matCellDef="let course">{{ course.name }}</td>
+        <td mat-cell *matCellDef="let course">{{ course.curso }}</td>
       </ng-container>
 
       <!-- Categoria Column -->
       <ng-container matColumnDef="category">
         <th mat-header-cell *matHeaderCellDef>Categoria</th>
-        <td mat-cell *matCellDef="let course">{{ course.category }}
+        <td mat-cell *matCellDef="let course">{{ course.categoria }}
           <mat-icon aria-hidden="false" aria-label="Categoria do curso" fontIcon="{{ course.category | category }}"></mat-icon>
         </td>
       </ng-container>
