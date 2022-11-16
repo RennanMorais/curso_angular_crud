@@ -13,7 +13,7 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 export class CoursesComponent implements OnInit {
 
   courses$: Observable<Course[]>;
-  displayedColumns: string[] = ['name', 'category'];
+  displayedColumns: string[] = ['curso', 'categoria', 'acoes'];
 
   //coursesService: CoursesService;
 
