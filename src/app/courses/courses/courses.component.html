@@ -21,12 +21,21 @@
         </td>
       </ng-container>
 
+      <!-- Ações Column -->
       <ng-container matColumnDef="acoes">
-        <th mat-header-cell *matHeaderCellDef>Ações</th>
-        <td mat-cell *matCellDef="">
-          <button mat-raised-button color="primary" mat-dialog-close>Editar</button>
-          <button mat-raised-button color="warn" mat-dialog-close>Apagar</button>
-        </td>
+        <mat-header-cell *matHeaderCellDef="">
+          <button (click)="onAdd()" mat-mini-fab color="primary" aria-label="Adicionar um curso">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let course">
+          <button mat-icon-button color="primary" aria-label="Editar curso">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" aria-label="Excluir curso">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
