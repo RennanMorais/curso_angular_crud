@@ -2,22 +2,29 @@ import { Course } from './../model/course';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { delay, first, tap } from 'rxjs';
+import { RequestResponse } from '../model/RequestResponse';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
 
-  private readonly API = 'crud-angular-api/cursos';
+  private readonly url_getCursos = 'crud-angular-api/cursos';
+  private readonly url_addCurso = 'crud-angular-api/cursos/add';
 
   constructor(private httpClient: HttpClient) { }
 
   getCourses() {
-    return this.httpClient.get<Course[]>(this.API)
+    return this.httpClient.get<Course[]>(this.url_getCursos)
     .pipe(
       first(),
-      delay(2000),
+      delay(1000),
       tap(courses => console.log(courses))
     );
   }
+
+  addCourse(curso: Course) {
+    return this.httpClient.post<RequestResponse>(this.url_addCurso, curso);
+  }
+
 }
