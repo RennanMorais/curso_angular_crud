@@ -1,8 +1,8 @@
+import { CourseRequest } from './../model/course-request';
 import { Course } from './../model/course';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { delay, first, tap } from 'rxjs';
-import { RequestResponse } from '../model/RequestResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +23,8 @@ export class CoursesService {
     );
   }
 
-  addCourse(curso: Course) {
-    return this.httpClient.post<RequestResponse>(this.url_addCurso, curso);
+  addCourse(request: CourseRequest) {
+    return this.httpClient.post<CourseRequest>(this.url_addCurso, request);
   }
 
 }
