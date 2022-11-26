@@ -32,14 +32,12 @@ export class CourseAddComponent {
 
   onSubmit() {
     this.courseService.addCourse(this.form.value)
-    .subscribe(response => console.log(response), erro => this.onError());
+    .subscribe(response => this._snackBar.open("Curso salvo com sucesso."),
+      erro => this._snackBar.open("Erro ao salvar o curso."));
+    this.router.navigate([''], {relativeTo: this.route});
   }
 
   onCancel() {
     this.router.navigate([''], {relativeTo: this.route});
-  }
-
-  onError() {
-    this._snackBar.open("Erro ao salvar o curso.");
   }
 }

@@ -1,4 +1,3 @@
-import { CourseRequest } from './../model/course-request';
 import { Course } from './../model/course';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -23,8 +22,8 @@ export class CoursesService {
     );
   }
 
-  addCourse(request: CourseRequest) {
-    return this.httpClient.post<CourseRequest>(this.url_addCurso, request);
+  addCourse(request: Course) {
+    return this.httpClient.post<Course>(this.url_addCurso, request);
   }
 
 }

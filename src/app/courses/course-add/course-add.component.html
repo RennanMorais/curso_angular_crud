@@ -5,12 +5,12 @@
     <form [formGroup]="form">
       <mat-form-field class="full-width">
         <mat-label>Curso</mat-label>
-        <input matInput formControlName="curso">
+        <input matInput formControlName="curso" required>
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <mat-label>Categoria</mat-label>
-        <mat-select formControlName="categoria">
+        <mat-select formControlName="categoria" required>
           <mat-option value="null"></mat-option>
           <mat-option value="front-end" >Front-End</mat-option>
           <mat-option value="back-end">Back-End</mat-option>
