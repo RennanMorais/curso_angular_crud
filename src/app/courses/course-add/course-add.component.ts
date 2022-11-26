@@ -32,7 +32,7 @@ export class CourseAddComponent {
 
   onSubmit() {
     this.courseService.addCourse(this.form.value)
-    .subscribe(response => this._snackBar.open("Curso salvo com sucesso."),
+    .subscribe(response => this._snackBar.open(response.mensagem),
       erro => this._snackBar.open("Erro ao salvar o curso."));
     this.router.navigate([''], {relativeTo: this.route});
   }

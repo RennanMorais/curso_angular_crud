@@ -1,3 +1,4 @@
+import { CourseEditComponent } from './course-edit/course-edit.component';
 import { CourseAddComponent } from './course-add/course-add.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path:'add',
     component: CourseAddComponent
+  },
+  {
+    path:'edit',
+    component: CourseEditComponent
   }
 ];
 

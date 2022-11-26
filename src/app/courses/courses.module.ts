@@ -6,13 +6,15 @@ import { CommonModule } from '@angular/common';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseAddComponent } from './course-add/course-add.component';
+import { CourseEditComponent } from './course-edit/course-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     CoursesComponent,
-    CourseAddComponent
+    CourseAddComponent,
+    CourseEditComponent
   ],
   imports: [
     CommonModule,
