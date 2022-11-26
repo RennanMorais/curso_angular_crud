@@ -1,0 +1,38 @@
+<mat-table [dataSource]="courses" class="mat-table">
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Curso Column -->
+  <ng-container matColumnDef="curso">
+    <mat-header-cell *matHeaderCellDef>Curso</mat-header-cell>
+    <mat-cell *matCellDef="let course">{{ course.curso }}</mat-cell>
+  </ng-container>
+
+  <!-- Categoria Column -->
+  <ng-container matColumnDef="categoria">
+    <mat-header-cell *matHeaderCellDef>Categoria</mat-header-cell>
+    <mat-cell *matCellDef="let course">{{ course.categoria }}
+      <mat-icon aria-hidden="false" aria-label="Categoria do curso" fontIcon="{{ course.categoria | category }}"></mat-icon>
+    </mat-cell>
+  </ng-container>
+
+  <!-- Ações Column -->
+  <ng-container matColumnDef="acoes">
+    <mat-header-cell *matHeaderCellDef="" class="action-column-header">
+      <button (click)="onAdd()" mat-mini-fab color="primary" aria-label="Adicionar um curso">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let course" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Editar curso" (click)="onEdit(course)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" aria-label="Excluir curso">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

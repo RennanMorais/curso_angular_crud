@@ -1,6 +1,6 @@
 import { CoursesService } from './../services/courses.service';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -11,20 +11,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CourseAddComponent {
 
-  form: FormGroup;
+  form = this.formBuilder.group({
+    curso: [''],
+    categoria: ['']
+  });
 
   constructor(
     private courseService: CoursesService,
-    private formBuilder: FormBuilder,
+    private formBuilder: NonNullableFormBuilder,
     private _snackBar: MatSnackBar,
     private router: Router,
     private route: ActivatedRoute,
-  ) {
-    this.form = this.formBuilder.group({
-      curso: [null],
-      categoria: [null]
-    })
-  }
+  ) { }
 
   ngOnInit(): void {
 

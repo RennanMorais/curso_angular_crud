@@ -23,7 +23,7 @@ export class CoursesService {
     );
   }
 
-  addCourse(request: Course) {
+  addCourse(request: Partial<Course>) {
     return this.httpClient.post<MessageResponse>(this.url_addCurso, request);
   }
 

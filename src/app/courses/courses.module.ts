@@ -8,13 +8,15 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseAddComponent } from './course-add/course-add.component';
 import { CourseEditComponent } from './course-edit/course-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CourseListComponent } from './course-list/course-list.component';
 
 
 @NgModule({
   declarations: [
     CoursesComponent,
     CourseAddComponent,
-    CourseEditComponent
+    CourseEditComponent,
+    CourseListComponent
   ],
   imports: [
     CommonModule,
