@@ -1,5 +1,5 @@
-import { CoursesService } from './../services/courses.service';
-import { Course } from './../model/course';
+import { CoursesService } from '../../services/courses.service';
+import { Course } from '../../model/course';
 import { Component, OnInit } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
@@ -48,8 +48,8 @@ export class CoursesComponent implements OnInit {
     this.router.navigate(['add'], {relativeTo: this.route});
   }
 
-  onEdit(curso: Course) {
-    this.router.navigate(['edit', curso], {relativeTo: this.route});
+  onEdit() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 
 }
