@@ -18,8 +18,8 @@ export class CourseListComponent {
     this.add.emit(true);
   }
 
-  onEdit() {
-    this.edit.emit(true);
+  onEdit(curso: Course) {
+    this.edit.emit(curso);
   }
 
 }

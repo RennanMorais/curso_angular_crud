@@ -1,3 +1,4 @@
+import { CourseResolver } from './guards/course.resolver';
 import { CourseEditComponent } from './course-edit/course-edit.component';
 import { CourseAddComponent } from './containers/course-add/course-add.component';
 import { NgModule } from '@angular/core';
@@ -11,11 +12,13 @@ const routes: Routes = [
   },
   {
     path:'add',
-    component: CourseAddComponent
+    component: CourseAddComponent,
+    resolve: {course: CourseResolver}
   },
   {
-    path:'edit',
-    component: CourseEditComponent
+    path:'edit/:id',
+    component: CourseEditComponent,
+    resolve: {course: CourseResolver}
   }
 ];
 

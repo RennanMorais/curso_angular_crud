@@ -9,10 +9,9 @@ import { delay, first, tap } from 'rxjs';
 })
 export class CoursesService {
 
-  private readonly urlApi = 'crud-angular-api';
-  private readonly url_getCursos = '/cursos';
-  private readonly url_addCurso = '/cursos/add';
-  private readonly url_getCurso = '/cursos';
+  private readonly urlApi = 'crud-angular-api/cursos';
+  private readonly url_getCursos = '';
+  private readonly url_addCurso = '/add';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -25,8 +24,8 @@ export class CoursesService {
     );
   }
 
-  getCourse(id: number) {
-    return this.httpClient.get<Course>(this.url_getCurso);
+  getCourse(id: string) {
+    return this.httpClient.get<Course>(`${this.urlApi}/${id}`);
   }
 
   addCourse(request: Partial<Course>) {

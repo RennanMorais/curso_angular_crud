@@ -1,6 +1,7 @@
+import { CoursesService } from './../services/courses.service';
 import { Course } from './../model/course';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -14,8 +15,9 @@ export class CourseEditComponent {
   form: FormGroup;
 
   constructor(
+    private courseService: CoursesService,
+    private formBuilder: NonNullableFormBuilder,
     private _snackBar: MatSnackBar,
-    private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
   ) {
