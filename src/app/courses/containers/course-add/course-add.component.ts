@@ -1,3 +1,5 @@
+import { MessageResponse } from './../../model/message-response';
+import { delay } from 'rxjs';
 import { CoursesService } from '../../services/courses.service';
 import { Component, Pipe } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder } from '@angular/forms';
@@ -19,7 +21,7 @@ export class CourseAddComponent {
   constructor(
     private courseService: CoursesService,
     private formBuilder: NonNullableFormBuilder,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
@@ -30,12 +32,19 @@ export class CourseAddComponent {
 
   onSubmit() {
     this.courseService.addCourse(this.form.value)
-    .subscribe(response => this._snackBar.open(response.mensagem),
-      erro => this._snackBar.open("Erro ao salvar o curso."));
+    .subscribe(response => this.onSuccess(response), erro => this.onError());
     this.router.navigate([''], {relativeTo: this.route});
   }
 
   onCancel() {
     this.router.navigate([''], {relativeTo: this.route});
+  }
+
+  onSuccess(serviceResonse: MessageResponse) {
+    this.snackBar.open(serviceResonse.mensagem, '', { duration: 3000 });
+  }
+
+  onError() {
+    this.snackBar.open('Falha ao salvar o curso.', '', { duration: 3000 });
   }
 }

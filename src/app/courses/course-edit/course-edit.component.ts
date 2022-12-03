@@ -12,19 +12,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CourseEditComponent {
 
-  form: FormGroup;
+  form = this.formBuilder.group({
+    curso: [''],
+    categoria: ['']
+  });
 
   constructor(
     private courseService: CoursesService,
     private formBuilder: NonNullableFormBuilder,
     private _snackBar: MatSnackBar,
     private router: Router,
-    private route: ActivatedRoute,
-  ) {
-    this.form = this.formBuilder.group({
-      curso: [null],
-      categoria: [null]
-    })
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    const course: Course = this.route.snapshot.data['course'];
+    this.form.setValue({
+      curso: course.curso,
+      categoria: course.categoria
+    });
   }
 
   onCancel() {
