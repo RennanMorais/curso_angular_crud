@@ -10,13 +10,13 @@ import { delay, first, tap } from 'rxjs';
 export class CoursesService {
 
   private readonly urlApi = 'crud-angular-api/cursos';
-  private readonly url_getCursos = '';
   private readonly url_addCurso = '/add';
+  private readonly url_editCurso = '/edit';
 
   constructor(private httpClient: HttpClient) { }
 
   getCourses() {
-    return this.httpClient.get<Course[]>(this.urlApi+this.url_getCursos)
+    return this.httpClient.get<Course[]>(this.urlApi)
     .pipe(
       first(),
       delay(1000),
@@ -25,7 +25,7 @@ export class CoursesService {
   }
 
   getCourse(id: string) {
-    return this.httpClient.get<Course>(`${this.urlApi}/${id}`);
+    return this.httpClient.get<Course>(`${this.urlApi + this.url_editCurso}/${id}`);
   }
 
   addCourse(request: Partial<Course>) {

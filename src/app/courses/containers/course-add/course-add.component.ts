@@ -33,7 +33,6 @@ export class CourseAddComponent {
   onSubmit() {
     this.courseService.addCourse(this.form.value)
     .subscribe(response => this.onSuccess(response), erro => this.onError());
-    this.router.navigate([''], {relativeTo: this.route});
   }
 
   onCancel() {
@@ -42,6 +41,7 @@ export class CourseAddComponent {
 
   onSuccess(serviceResonse: MessageResponse) {
     this.snackBar.open(serviceResonse.mensagem, '', { duration: 3000 });
+    this.onCancel();
   }
 
   onError() {
