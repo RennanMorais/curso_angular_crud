@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path:'edit/:id',
     component: CourseEditComponent,
-    resolve: {course: CourseResolver}
+    resolve: {curso: CourseResolver}
   }
 ];
 
